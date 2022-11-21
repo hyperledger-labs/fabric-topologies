@@ -1,0 +1,9 @@
+services:
+  org2-peers-proxy:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org2-peers-proxy
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/config/peers-proxies/nginx/org2-nginx.conf:/etc/nginx/nginx.conf
+  org3-peers-proxy:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org3-peers-proxy
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/config/peers-proxies/nginx/org3-nginx.conf:/etc/nginx/nginx.conf

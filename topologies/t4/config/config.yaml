@@ -1,0 +1,14 @@
+NodeOUs:
+  Enable: true
+  ClientOUIdentifier:
+    Certificate: cacerts/ca-cert.pem
+    OrganizationalUnitIdentifier: hlclient
+  PeerOUIdentifier:
+    Certificate: cacerts/ca-cert.pem
+    OrganizationalUnitIdentifier: hlpeer
+  AdminOUIdentifier:
+    Certificate: cacerts/ca-cert.pem
+    OrganizationalUnitIdentifier: hladmin
+  OrdererOUIdentifier:
+    Certificate: cacerts/ca-cert.pem
+    OrganizationalUnitIdentifier: hlorderer

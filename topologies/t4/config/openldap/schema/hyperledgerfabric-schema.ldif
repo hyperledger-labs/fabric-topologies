@@ -1,0 +1,58 @@
+dn: cn=hyperledgerfabric,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: hyperledgerfabric
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.1 
+    NAME 'hfType' 
+    EQUALITY caseIgnoreMatch 
+    SUBSTR caseIgnoreSubstringsMatch 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.2 
+    NAME 'hfAffiliation' 
+    EQUALITY caseIgnoreMatch 
+    SUBSTR caseIgnoreSubstringsMatch 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.3 
+    NAME 'hfRegistrarRoles' 
+    EQUALITY caseIgnoreMatch 
+    SUBSTR caseIgnoreSubstringsMatch 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.4 
+    NAME 'hfRegistrarAttributes' 
+    EQUALITY caseIgnoreMatch 
+    SUBSTR caseIgnoreSubstringsMatch 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.5 
+    NAME 'hfRegistrarDelegateRoles' 
+    EQUALITY caseIgnoreMatch 
+    SUBSTR caseIgnoreSubstringsMatch 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.6 
+    NAME 'hfRevoker' 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.7 
+    NAME 'hfGenCRL' 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.8 
+    NAME 'hfAffiliationMgr' 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.9 
+    NAME 'hfIntermediateCA' 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.7 )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.10 
+    NAME 'hfCustomField1' 
+    EQUALITY caseIgnoreMatch 
+    SUBSTR caseIgnoreSubstringsMatch 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128} )
+olcAttributeTypes: ( 1.3.6.1.4.1.7747757.1.1.2.1.11 
+    NAME 'hfCustomField2' 
+    EQUALITY caseIgnoreMatch 
+    SUBSTR caseIgnoreSubstringsMatch 
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{128} )
+olcObjectClasses: ( 1.3.6.1.4.1.7747757.1.1.2.2.1 
+    NAME 'hyperledgerFabric'
+    DESC 'RFC1274: To be used for accounts that need Hyperledger Fabric attributes' 
+    SUP top AUXILIARY
+    MUST ( cn )
+    MAY ( hfType $ hfAffiliation $ hfRegistrarRoles $ hfRegistrarAttributes $ hfRegistrarDelegateRoles $ hfRevoker $ hfGenCRL $ hfAffiliationMgr $ hfIntermediateCA $ hfCustomField1 $ hfCustomField2 ) )
+    
+

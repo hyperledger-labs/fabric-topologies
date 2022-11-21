@@ -1,0 +1,29 @@
+services:
+  org2-peer1-couchdb1:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb1
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=hltopos
+      - NODENAME=${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb1.local
+      - NODE_NETBIOS_NAME=${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb1.local
+    hostname: ${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb1.local
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/homefolders/peer1/couchdb1/logs:/opt/couchdb/var/log
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/homefolders/peer1/couchdb1/data:/opt/couchdb/data
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/homefolders/peer1/couchdb1/config:/opt/couchdb/etc/local.d
+  org2-peer1-couchdb2:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb2
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=hltopos
+      - NODENAME=${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb2.local
+      - NODE_NETBIOS_NAME=${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb2.local
+    hostname: ${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb2.local
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/homefolders/peer1/couchdb2/logs:/opt/couchdb/var/log
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/homefolders/peer1/couchdb2/data:/opt/couchdb/data
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/homefolders/peer1/couchdb2 /config:/opt/couchdb/etc/local.d
+  org2-peer1-couchdb-proxy:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org2-peer1-couchdb-proxy
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/config/couchdb/nginx-proxy/nginx.conf:/etc/nginx/nginx.conf

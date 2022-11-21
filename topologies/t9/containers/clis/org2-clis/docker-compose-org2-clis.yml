@@ -1,0 +1,24 @@
+services:
+  org2-cli-peer1:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org2-cli-peer1
+    tty: true
+    stdin_open: true
+    environment:
+      - GOPATH=/opt/gopath
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - FABRIC_LOGGING_SPEC=DEBUG
+      - CORE_PEER_ID=${CURRENT_HL_TOPOLOGY}-org2-cli-peer1
+      - CORE_PEER_ADDRESS=${CURRENT_HL_TOPOLOGY}-org2-peer1:7051
+      - CORE_PEER_LOCALMSPID=org2MSP
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_ROOTCERT_FILE=/tmp/crypto-material/cas/org2/ca-tls/ca-cert.pem
+      - CORE_PEER_TLS_CLIENTAUTHREQUIRED=true
+      - CORE_PEER_TLS_CLIENTCERT_FILE=/tmp/crypto-material/orgs/org2/admins/admin-tls/msp/signcerts/cert.pem
+      - CORE_PEER_TLS_CLIENTKEY_FILE=/tmp/crypto-material/orgs/org2/admins/admin-tls/msp/keystore/key.pem
+      - CORE_PEER_MSPCONFIGPATH=/tmp/crypto-material/peers/org2/peer1/node/msp
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/org2
+    command: sh
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/assets/chaincode:/opt/gopath/src/github.com/hyperledger/fabric-samples/chaincode"
+      - "${HL_TOPOLOGIES_BASE_FOLDER}:/tmp"

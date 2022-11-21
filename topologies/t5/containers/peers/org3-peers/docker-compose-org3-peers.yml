@@ -1,0 +1,50 @@
+services:
+  org3-peer1:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org3-peer1
+    environment:
+      - CORE_PEER_ID=${CURRENT_HL_TOPOLOGY}-org3-peer1
+      - CORE_PEER_ADDRESS=${CURRENT_HL_TOPOLOGY}-org3-peer1:7051
+      - CORE_PEER_LOCALMSPID=org3MSP
+      - CORE_PEER_MSPCONFIGPATH=/tmp/crypto-material/peers/org3/peer1/node/msp
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=hl-fabric-${CURRENT_HL_TOPOLOGY}
+      # - FABRIC_LOGGING_SPEC=debug
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/tmp/crypto-material/peers/org3/peer1/node-tls/msp/signcerts/cert.pem
+      - CORE_PEER_TLS_KEY_FILE=/tmp/crypto-material/peers/org3/peer1/node-tls/msp/keystore/key.pem
+      - CORE_PEER_TLS_ROOTCERT_FILE=/tmp/crypto-material/peers/org3/peer1/node-tls/msp/tlscacerts/ca-cert.pem
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=${CURRENT_HL_TOPOLOGY}-org3-peer1:7051
+      - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+      # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/org3/peer1
+    volumes:
+      - /var/run:/host/var/run
+      - ${HL_TOPOLOGIES_BASE_FOLDER}:/tmp
+  org3-peer2:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org3-peer2
+    environment:
+      - CORE_PEER_ID=${CURRENT_HL_TOPOLOGY}-org3-peer2
+      - CORE_PEER_ADDRESS=${CURRENT_HL_TOPOLOGY}-org3-peer2:7051
+      - CORE_PEER_LOCALMSPID=org3MSP
+      - CORE_PEER_MSPCONFIGPATH=/tmp/crypto-material/peers/org3/peer2/node/msp
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=hl-fabric-${CURRENT_HL_TOPOLOGY}
+      # - FABRIC_LOGGING_SPEC=debug
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/tmp/crypto-material/peers/org3/peer2/node-tls/msp/signcerts/cert.pem
+      - CORE_PEER_TLS_KEY_FILE=/tmp/crypto-material/peers/org3/peer2/node-tls/msp/keystore/key.pem
+      - CORE_PEER_TLS_ROOTCERT_FILE=/tmp/crypto-material/peers/org3/peer2/node-tls/msp/tlscacerts/ca-cert.pem
+      - CORE_PEER_GOSSIP_USELEADERELECTION=true
+      - CORE_PEER_GOSSIP_ORGLEADER=false
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=${CURRENT_HL_TOPOLOGY}-org3-peer2:7051
+      - CORE_PEER_GOSSIP_SKIPHANDSHAKE=true
+      # - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052
+      - CORE_PEER_GOSSIP_BOOTSTRAP=${CURRENT_HL_TOPOLOGY}-org3-peer1:7051
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/org3/peer2
+    volumes:
+      - /var/run:/host/var/run
+      - ${HL_TOPOLOGIES_BASE_FOLDER}:/tmp

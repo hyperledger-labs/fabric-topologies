@@ -1,0 +1,14 @@
+services:
+  org-shell-cmd:
+    container_name: ${CURRENT_HL_TOPOLOGY}-shell-cmd
+    image: shell-cmd-utils-hl-fabric
+    tty: true
+    stdin_open: true
+    command: sh
+    environment:
+      - HL_TOPOLOGIES_BASE_FOLDER=${HL_TOPOLOGIES_BASE_FOLDER}
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}:/tmp"
+    networks:
+      - hl-fabric

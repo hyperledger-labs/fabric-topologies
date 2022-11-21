@@ -1,0 +1,61 @@
+services:
+  org1-ca-tls-n0:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org1-ca-tls-n0
+    command: sh -c 'fabric-ca-server start -d -b org1-ca-tls-admin:org1-ca-tls-adminpw --port 9000'
+    environment:
+      - FABRIC_CA_SERVER_HOME=/tmp/hyperledger/fabric-ca/
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CSR_CN=${CURRENT_HL_TOPOLOGY}-org1-ca-tls
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_DEBUG=true
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+      - FABRIC_CA_SERVER_DB_TYPE=postgres
+      - FABRIC_CA_SERVER_DB_DATASOURCE=host=${CURRENT_HL_TOPOLOGY}-org1-ca-db port=5432 user=postgres password=adminpsql dbname=fabric_ca_tls sslmode=disable
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/crypto-material/cas/org1/ca-tls:/tmp/hyperledger/fabric-ca"
+      - "${HL_TOPOLOGIES_BASE_FOLDER}:/tmp"
+  org1-ca-tls-n1:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org1-ca-tls-n1
+    command: sh -c 'fabric-ca-server start -d -b org1-ca-tls-admin:org1-ca-tls-adminpw --port 9000'
+    environment:
+      - FABRIC_CA_SERVER_HOME=/tmp/hyperledger/fabric-ca/
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CSR_CN=${CURRENT_HL_TOPOLOGY}-org1-ca-tls
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_DEBUG=true
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+      - FABRIC_CA_SERVER_DB_TYPE=postgres
+      - FABRIC_CA_SERVER_DB_DATASOURCE=host=${CURRENT_HL_TOPOLOGY}-org1-ca-db port=5432 user=postgres password=adminpsql dbname=fabric_ca_tls sslmode=disable
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/crypto-material/cas/org1/ca-tls:/tmp/hyperledger/fabric-ca"
+      - "${HL_TOPOLOGIES_BASE_FOLDER}:/tmp"
+  org1-ca-identities-n0:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org1-ca-identities-n0
+    command: sh -c 'fabric-ca-server start -d -b org1-ca-identities-admin:org1-ca-identities-adminpw --port 9000'
+    environment:
+      - FABRIC_CA_SERVER_HOME=/tmp/hyperledger/fabric-ca/
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CSR_CN=${CURRENT_HL_TOPOLOGY}-org1-ca-identities
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_DEBUG=true
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+      - FABRIC_CA_SERVER_DB_TYPE=postgres
+      - FABRIC_CA_SERVER_DB_DATASOURCE=host=${CURRENT_HL_TOPOLOGY}-org1-ca-db port=5432 user=postgres password=adminpsql dbname=fabric_ca_identities sslmode=disable
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/crypto-material/cas/org1/ca-identities:/tmp/hyperledger/fabric-ca"
+      - "${HL_TOPOLOGIES_BASE_FOLDER}:/tmp"
+  org1-ca-identities-n1:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org1-ca-identities-n1
+    command: sh -c 'fabric-ca-server start -d -b org1-ca-identities-admin:org1-ca-identities-adminpw --port 9000'
+    environment:
+      - FABRIC_CA_SERVER_HOME=/tmp/hyperledger/fabric-ca/
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CSR_CN=${CURRENT_HL_TOPOLOGY}-org1-ca-identities
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_DEBUG=true
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+      - FABRIC_CA_SERVER_DB_TYPE=postgres
+      - FABRIC_CA_SERVER_DB_DATASOURCE=host=${CURRENT_HL_TOPOLOGY}-org1-ca-db port=5432 user=postgres password=adminpsql dbname=fabric_ca_identities sslmode=disable
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/crypto-material/cas/org1/ca-identities:/tmp/hyperledger/fabric-ca"
+      - "${HL_TOPOLOGIES_BASE_FOLDER}:/tmp"

@@ -1,0 +1,7 @@
+services:
+  orderers-proxy:
+    container_name: ${CURRENT_HL_TOPOLOGY}-orderers-proxy
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/config/orderers-proxy/nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8443:8443

@@ -1,0 +1,15 @@
+services:
+  org2-ca-openldap:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org2-ca-openldap
+    environment:
+      - LDAP_BIND_DN=cn=admin,dc=org2,dc=org
+      - LDAP_BIND_PASSWORD=adminpassword
+      - LDAP_ROOT=dc=org2,dc=org
+      - LDAP_ALLOW_ANON_BINDING=no
+      - LDAP_CUSTOM_LDIF_DIR=/opt/bitnami/openldap/etc/ldif
+      - LDAP_LOGLEVEL=8
+      - BITNAMI_DEBUG=true
+      - LDAP_EXTRA_SCHEMAS=cosine,inetorgperson,nis,hyperledgerfabric-schema
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/config/openldap/org2/ldif:/opt/bitnami/openldap/etc/ldif"
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/config/openldap/schema/hyperledgerfabric-schema.ldif:/opt/bitnami/openldap/etc/schema/hyperledgerfabric-schema.ldif"

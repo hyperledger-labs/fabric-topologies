@@ -1,0 +1,10 @@
+services:
+  org1-ca-db:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org1-ca-db
+    environment:
+      - PGDATA=/tmp/postgres/data
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=adminpsql
+      - POSTGRES_DB=postgres
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/homefolders/org1/ca-db/data:/tmp/postgres/data"

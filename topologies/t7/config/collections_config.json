@@ -1,0 +1,11 @@
+[
+    {
+        "name": "org2PrivateData",
+        "policy": "OR('org2MSP.member')",
+        "requiredPeerCount": 0,
+        "maxPeerCount": 3,
+        "blockToLive": 3,
+        "memberOnlyRead": true,
+        "memberOnlyWrite": true
+    }
+]
