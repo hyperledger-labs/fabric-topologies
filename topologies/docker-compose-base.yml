@@ -1,0 +1,5 @@
+version: "3.9"
+networks:
+  hl-fabric:
+    driver: bridge
+    name: hl-fabric-${CURRENT_HL_TOPOLOGY}

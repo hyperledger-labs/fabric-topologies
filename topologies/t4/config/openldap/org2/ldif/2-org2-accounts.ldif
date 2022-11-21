@@ -1,0 +1,99 @@
+# tls accounts
+
+dn: uid=org2-ca-tls-admin,ou=ldap,ou=tls,ou=hlfabric,dc=org2,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org2-ca-tls-admin
+cn: org2-ca-tls-admin
+userPassword: org2-ca-tls-adminpw
+hfRegistrarAttributes: *
+hfAffiliation: empty
+hfRegistrarRoles: *
+hfRegistrarDelegateRoles: *
+hfAffiliationMgr: TRUE
+hfRevoker: TRUE
+hfIntermediateCA: TRUE
+hfGenCRL: TRUE
+hfCustomField1: abc:ecert
+hfCustomField2: xyz
+
+dn: uid=org2-tls-peer1,ou=hlpeer,ou=tls,ou=hlfabric,dc=org2,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org2-tls-peer1
+cn: org2-tls-peer1
+userPassword: peer1PW
+hfType: peer
+hfAffiliation: empty
+
+dn: uid=org2-tls-peer2,ou=hlpeer,ou=tls,ou=hlfabric,dc=org2,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org2-tls-peer2
+cn: org2-tls-peer2
+userPassword: peer2PW
+hfType: peer
+hfAffiliation: empty
+
+# identities accounts
+
+dn: uid=org2-ca-identities-admin,ou=ldap,ou=identities,ou=hlfabric,dc=org2,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org2-ca-tls-admin
+cn: org2-ca-tls-admin
+userPassword: org2-ca-identities-adminpw
+hfRegistrarAttributes: *
+hfAffiliation: empty
+hfRegistrarRoles: *
+hfRegistrarDelegateRoles: *
+hfAffiliationMgr: TRUE
+hfRevoker: TRUE
+hfIntermediateCA: TRUE
+hfGenCRL: TRUE
+hfCustomField1: abc:ecert
+hfCustomField2: xyz
+
+dn: uid=org2-identities-peer1,ou=hlpeer,ou=identities,ou=hlfabric,dc=org2,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org2-identities-peer1
+cn: org2-identities-peer1
+userPassword: peer1PW
+hfType: peer
+hfAffiliation: empty
+
+dn: uid=org2-identities-peer2,ou=hlpeer,ou=identities,ou=hlfabric,dc=org2,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org2-identities-peer2
+cn: org2-identities-peer2
+userPassword: peer2PW
+hfType: peer
+hfAffiliation: empty
+
+dn: uid=admin-org2,ou=hladmin,ou=identities,ou=hlfabric,dc=org2,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: admin-org2
+cn: admin-org2
+userPassword: org2AdminPW
+hfType: admin
+hfAffiliation: empty
+
+dn: uid=user-org2,ou=user,ou=identities,ou=hlfabric,dc=org2,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: user-org2
+cn: user-org2
+userPassword: org2UserPW
+hfType: user
+hfAffiliation: empty

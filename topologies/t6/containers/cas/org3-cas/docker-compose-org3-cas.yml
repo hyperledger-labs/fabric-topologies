@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  org3-ca-tls:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org3-ca-tls
+    command: sh -c 'fabric-ca-server start -d -b org3-ca-tls-admin:org3-ca-tls-adminpw --port 7054'
+    environment:
+      - FABRIC_CA_SERVER_HOME=/tmp/hyperledger/fabric-ca/
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CSR_CN=${CURRENT_HL_TOPOLOGY}-org3-ca-tls
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_DEBUG=true
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+      - FABRIC_CA_SERVER_TLS_CLIENTAUTH_TYPE=RequireAndVerifyClientCert
+      - FABRIC_CA_SERVER_TLS_CLIENTAUTH_CERTFILES=/tmp/hyperledger/fabric-ca/ca-cert.pem
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/crypto-material/cas/org3/ca-tls:/tmp/hyperledger/fabric-ca"
+      - "${HL_TOPOLOGIES_BASE_FOLDER}:/tmp"
+  org3-ca-identities:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org3-ca-identities
+    command: sh -c 'fabric-ca-server start -d -b org3-ca-identities-admin:org3-ca-identities-adminpw --port 7054'
+    environment:
+      - FABRIC_CA_SERVER_HOME=/tmp/hyperledger/fabric-ca/
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CSR_CN=${CURRENT_HL_TOPOLOGY}-org3-ca-identities
+      - FABRIC_CA_SERVER_CSR_HOSTS=0.0.0.0
+      - FABRIC_CA_SERVER_DEBUG=true
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+    volumes:
+      - "${HL_TOPOLOGIES_BASE_FOLDER}/crypto-material/cas/org3/ca-identities:/tmp/hyperledger/fabric-ca"
+      - "${HL_TOPOLOGIES_BASE_FOLDER}:/tmp"

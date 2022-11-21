@@ -1,0 +1,11 @@
+services:
+  org3-chaincode:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org3-chaincode
+    environment:
+      - CHACINCODE_ID=${CC_ID}
+      - CHACINCODE_ADDRESS=0.0.0.0:7075
+      - CHAINCODE_TLS_KEY=/tmp/crypto-material/orgs/org3/chaincode/msp/keystore/key.pem
+      - CHAINCODE_TLS_CERT=/tmp/crypto-material/orgs/org3/chaincode/msp/signcerts/cert.pem
+      # - CHAINCODE_CLIENT_CA_CERT=/tmp/crypto-material/cas/org3/ca-tls/ca-cert.pem
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}:/tmp

@@ -1,0 +1,109 @@
+services:
+  org-shell-cmd:
+    image: alpine
+    networks:
+      - hl-fabric
+  org1-ca-tls:
+    image: hyperledger/fabric-ca:${FABRIC_CA_VERSION}
+    # ports:
+    #   - <PORT>:7054
+    networks:
+      - hl-fabric
+  org1-ca-identities:
+    image: hyperledger/fabric-ca:${FABRIC_CA_VERSION}
+    # ports:
+    #   - <PORT>:7054
+    networks:
+      - hl-fabric
+  org2-ca-tls:
+    image: hyperledger/fabric-ca:${FABRIC_CA_VERSION}
+    # ports:
+    #   - <PORT>:7054
+    networks:
+      - hl-fabric
+  org2-ca-identities:
+    image: hyperledger/fabric-ca:${FABRIC_CA_VERSION}
+    # ports:
+    #   - <PORT>:7054
+    networks:
+      - hl-fabric
+  org3-ca-tls:
+    image: hyperledger/fabric-ca:${FABRIC_CA_VERSION}
+    # ports:
+    #   - <PORT>:7054
+    networks:
+      - hl-fabric
+  org3-ca-identities:
+    image: hyperledger/fabric-ca:${FABRIC_CA_VERSION}
+    # ports:
+    #   - <PORT>:7054
+    networks:
+      - hl-fabric
+  org2-peer1:
+    image: hyperledger/fabric-peer:${FABRIC_PEER_VERSION}
+    # ports:
+    #   - <PORT>:7051
+    networks:
+      - hl-fabric
+  org2-peer1-couchdb1:
+    image: registry.hub.docker.com/library/couchdb:3.2.2
+    ports:
+      - 5987:5984
+    networks:
+      - hl-fabric
+  org2-peer1-couchdb2:
+    image: registry.hub.docker.com/library/couchdb:3.2.2
+    ports:
+      - 5988:5984
+    networks:
+      - hl-fabric
+  org2-peer1-couchdb-proxy:
+    image: nginx-hl-fabric
+    #ports:
+    #  - 9000:9000
+    networks:
+      - hl-fabric
+  org2-peer2:
+    image: hyperledger/fabric-peer:${FABRIC_PEER_VERSION}
+    # ports:
+    #   - <PORT>:7051
+    networks:
+      - hl-fabric
+  org3-peer1:
+    image: hyperledger/fabric-peer:${FABRIC_PEER_VERSION}
+    # ports:
+    #   - <PORT>:7051
+    networks:
+      - hl-fabric
+  org3-peer2:
+    image: hyperledger/fabric-peer:${FABRIC_PEER_VERSION}
+    # ports:
+    #   - <PORT>:7051
+    networks:
+      - hl-fabric
+  org2-cli-peer1:
+    image: hyperledger/fabric-tools:${FABRIC_TOOLS_VERSION}
+    networks:
+      - hl-fabric
+  org3-cli-peer1:
+    image: hyperledger/fabric-tools:${FABRIC_TOOLS_VERSION}
+    networks:
+      - hl-fabric
+  org1-orderer1:
+    image: hyperledger/fabric-orderer:${PEER_ORDERER_VERSION}
+    # ports:
+    #   - <PORT>:7050
+    networks:
+      - hl-fabric
+  org1-orderer2:
+    image: hyperledger/fabric-orderer:${PEER_ORDERER_VERSION}
+    # ports:
+    #   - <PORT>:7050
+    networks:
+      - hl-fabric
+  org1-orderer3:
+    image: hyperledger/fabric-orderer:${PEER_ORDERER_VERSION}
+    # ports:
+    #   - <PORT>:7050
+    networks:
+      - hl-fabric

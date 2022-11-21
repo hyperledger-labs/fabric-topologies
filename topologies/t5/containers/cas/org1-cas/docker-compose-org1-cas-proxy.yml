@@ -1,0 +1,12 @@
+services:
+  org1-ca-tls:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org1-ca-tls
+    environment:
+      - name=value12
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/config/cas-proxy/org1/tls/nginx/nginx.conf:/etc/nginx/nginx.conf
+    # command: [nginx-debug, '-g', 'daemon off;']
+  org1-ca-identities:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org1-ca-identities
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/config/cas-proxy/org1/identities/nginx/nginx.conf:/etc/nginx/nginx.conf

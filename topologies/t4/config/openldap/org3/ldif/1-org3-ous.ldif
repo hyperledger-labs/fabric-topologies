@@ -1,0 +1,69 @@
+dn: dc=org3,dc=org
+objectClass: dcObject
+objectClass: organization
+dc: org3
+o: Org 3
+
+dn: ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hlfabric
+
+# tls ous
+
+dn: ou=tls,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: tls
+
+dn: ou=ldap,ou=tls,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: ldap
+
+dn: ou=hlclient,ou=tls,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hlclient
+
+dn: ou=hlorderer,ou=tls,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hlorderer
+
+dn: ou=hlpeer,ou=tls,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hlpeer
+
+dn: ou=hladmin,ou=tls,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hladmin
+
+dn: ou=user,ou=tls,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: user
+
+# identities ous
+
+dn: ou=identities,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: identities
+
+dn: ou=ldap,ou=identities,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: ldap
+
+dn: ou=hlclient,ou=identities,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hlclient
+
+dn: ou=hlorderer,ou=identities,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hlorderer
+
+dn: ou=hlpeer,ou=identities,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hlpeer
+
+dn: ou=hladmin,ou=identities,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: hladmin
+
+dn: ou=user,ou=identities,ou=hlfabric,dc=org3,dc=org
+objectClass: organizationalUnit
+ou: user

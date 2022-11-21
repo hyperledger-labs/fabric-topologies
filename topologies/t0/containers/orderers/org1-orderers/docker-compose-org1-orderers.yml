@@ -1,0 +1,28 @@
+services:
+  org1-orderer1:
+    container_name: ${CURRENT_HL_TOPOLOGY}-org1-orderer1
+    environment:
+      - ORDERER_HOME=/tmp/hyperledger/orderer/home
+      - ORDERER_FILELEDGER_LOCATION=/tmp/hyperledger/orderer/fileledger
+      - ORDERER_HOST=${CURRENT_HL_TOPOLOGY}-org1-orderer1
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_LISTENPORT=7050
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      # - ORDERER_GENERAL_GENESISFILE=/tmp/crypto-material/artifacts/channels/genesis.block
+      - ORDERER_GENERAL_BOOTSTRAPFILE=/tmp/crypto-material/artifacts/channels/genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=org1MSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/tmp/crypto-material/orderers/org1/orderer1/node/msp
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/tmp/crypto-material/orderers/org1/orderer1/node-tls/msp/signcerts/cert.pem
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/tmp/crypto-material/orderers/org1/orderer1/node-tls/msp/keystore/key.pem
+      # - ORDERER_GENERAL_TLS_ROOTCAS=[/tmp/crypto-material/cas/org1/ca-tls/ca-cert.pem]
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/tmp/crypto-material/cas/org1/ca-tls/ca-cert.pem,/tmp/crypto-material/cas/org2/ca-tls/ca-cert.pem]
+      - ORDERER_GENERAL_LOGLEVEL=debug
+      - ORDERER_DEBUG_BROADCASTTRACEDIR=data/logs
+      - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:7051
+      - ORDERER_METRICS_STATSD_ADDRESS=0.0.0.0:7052
+      - ORDERER_GENERAL_PROFILE_ADDRESS=0.0.0.0:7053
+      - TOPOLOGY=${CURRENT_HL_TOPOLOGY}
+    volumes:
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/crypto-material:/tmp/crypto-material
+      - ${HL_TOPOLOGIES_BASE_FOLDER}/homefolders/orderers/org1/orderer1:/tmp/hyperledger/orderer

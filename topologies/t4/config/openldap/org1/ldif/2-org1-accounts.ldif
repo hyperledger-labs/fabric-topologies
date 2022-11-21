@@ -1,0 +1,109 @@
+# tls accounts
+
+dn: uid=org1-ca-tls-admin,ou=ldap,ou=tls,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org1-ca-tls-admin
+cn: org1-ca-tls-admin
+userPassword: org1-ca-tls-adminpw
+hfRegistrarAttributes: *
+hfAffiliation: empty
+hfRegistrarRoles: *
+hfRegistrarDelegateRoles: *
+hfAffiliationMgr: TRUE
+hfRevoker: TRUE
+hfIntermediateCA: TRUE
+hfGenCRL: TRUE
+hfCustomField1: abc:ecert
+hfCustomField2: xyz
+
+dn: uid=org1-tls-orderer1,ou=hlorderer,ou=tls,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org1-tls-orderer1
+cn: org1-tls-orderer1
+userPassword: orderer1PW
+hfType: orderer
+hfAffiliation: empty
+
+dn: uid=org1-tls-orderer2,ou=hlorderer,ou=tls,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org1-tls-orderer2
+cn: org1-tls-orderer2
+userPassword: orderer2PW
+hfType: orderer
+hfAffiliation: empty
+
+dn: uid=org1-tls-orderer3,ou=hlorderer,ou=tls,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org1-tls-orderer3
+cn: org1-tls-orderer3
+userPassword: orderer3PW
+hfType: orderer
+hfAffiliation: empty
+
+# identities accounts
+
+dn: uid=org1-ca-identities-admin,ou=ldap,ou=identities,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org1-ca-tls-admin
+cn: org1-ca-tls-admin
+userPassword: org1-ca-identities-adminpw
+hfRegistrarAttributes: *
+hfAffiliation: empty
+hfRegistrarRoles: *
+hfRegistrarDelegateRoles: *
+hfAffiliationMgr: TRUE
+hfRevoker: TRUE
+hfIntermediateCA: TRUE
+hfGenCRL: TRUE
+hfCustomField1: abc:ecert
+hfCustomField2: xyz
+
+dn: uid=org1-identities-orderer1,ou=hlorderer,ou=identities,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org1-identities-orderer1
+cn: org1-identities-orderer1
+userPassword: orderer1PW
+hfType: orderer
+hfAffiliation: empty
+
+dn: uid=org1-identities-orderer2,ou=hlorderer,ou=identities,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org1-identities-orderer2
+cn: org1-identities-orderer2
+userPassword: orderer2PW
+hfType: orderer
+hfAffiliation: empty
+
+dn: uid=org1-identities-orderer3,ou=hlorderer,ou=identities,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: org1-identities-orderer3
+cn: org1-identities-orderer3
+userPassword: orderer3PW
+hfType: orderer
+hfAffiliation: empty
+
+dn: uid=admin-org1,ou=hladmin,ou=identities,ou=hlfabric,dc=org1,dc=org
+objectClass: account
+objectClass: simpleSecurityObject
+objectClass: hyperledgerfabric
+uid: admin-org1
+cn: admin-org1
+userPassword: org1AdminPW
+hfType: admin
+hfAffiliation: empty
