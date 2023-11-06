@@ -1,3 +1,7 @@
+![Status Badge](https://img.shields.io/badge/Status-archived-red)
+
+**NOTE:** This lab has been archived and is no longer being maintained.
+
 # I. INTRODUCTION 
 
 A git repo that provides working examples of various Hyperledger Fabric network topologies that leverage a variety of features provided by the product, for production-ready deployments.
